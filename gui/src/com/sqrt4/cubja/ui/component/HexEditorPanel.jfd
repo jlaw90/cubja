@@ -1,0 +1,43 @@
+JFDML JFormDesigner: "5.2.0.0.109" Java: "1.7.0_60" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "com.sqrt4.cubja.ui.component.EditorPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
+				name: "splitPane1"
+				"resizeWeight": 0.5
+				"oneTouchExpandable": true
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "hexScroller"
+					"verticalScrollBarPolicy": 21
+					addEvent( new FormEvent( "java.awt.event.MouseWheelListener", "mouseWheelMoved", "hexScrollerMouseWheelMoved", true ) )
+					add( new FormComponent( "javax.swing.JTable" ) {
+						name: "hexTable"
+						"selectionMode": 1
+						auxiliary() {
+							"JavaCodeGenerator.customCreate": true
+						}
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "left"
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "asciiScroller"
+					add( new FormComponent( "javax.swing.JTable" ) {
+						name: "asciiTable"
+						"selectionMode": 1
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "right"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
